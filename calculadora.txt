@@ -1,0 +1,48 @@
+package calculadora;
+
+import javax.swing.JOptionPane;
+
+public class Calculadora {
+	public static final String SUMA = "+", RESTA = "-", MULTIPLICACION = "*", DIVISION = "/";
+
+	public static Float calcular(Float valor1, Float valor2, String operacion) {
+		Float resultado = null;
+
+		if (operacion.equals(SUMA)) {
+			resultado = valor1 + valor2;
+		}
+
+		if (operacion.equals(RESTA)) {
+			resultado = valor1 - valor2;
+		}
+		
+		if (operacion.equals(MULTIPLICACION)) {
+			resultado = valor1 * valor2;
+		}
+		
+		if (operacion.equals(DIVISION)) {
+			resultado = valor1 / valor2;
+		}
+
+		return resultado;
+	}
+	
+	public static void mostrar() {
+		String valor1, valor2, operacion;
+		operacion = JOptionPane.showInputDialog("Suma: '+'\nResta: '-'\nMultiplicacion: '*' \nDivision: '/' ");
+		valor1 = JOptionPane.showInputDialog("Valor 1: ");
+		valor2 = JOptionPane.showInputDialog("Valor 2: ");
+		Float result = calcular(new Float(valor1), new Float(valor2), operacion);
+		
+		if(result == null) {
+			JOptionPane.showMessageDialog(null, "Operación inválida.");
+		}
+		else {
+			JOptionPane.showMessageDialog(null, "Resultado: " + result);
+		}
+	}
+	
+	public static void main(String[] args) {
+		mostrar();
+	}
+}

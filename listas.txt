@@ -1,0 +1,70 @@
+package listas;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Scanner;
+
+public class Listas {
+
+public static int menu;
+    public static Scanner sc = new Scanner(System.in);
+    public static List<String> nombres = new ArrayList<>();
+    public static String agregar = null;
+    public static void main(String[] args) {
+        menu();
+    }
+    public static void menu() {
+        System.out.println("Ingrese la opcion que desea ");
+        System.out.println("---------------------------\n"
+                + "1.Ingreso de nombres\n"
+                + "2.Imprimir \n"
+                + "3.Agregar \n"
+                + "4.Consultar \n"
+                + "------------------------------------- ");
+        menu = sc.nextInt();
+        switch (menu) {
+            case 1:
+                ingresar();
+                break;
+            case 2:
+                imprimir();
+                break;
+            case 3:
+                agregar();
+                break;
+            case 4 :
+                consultar();
+                break;
+        }
+    }
+    public static void ingresar() {
+        System.out.println("Ingrese el nombre ");
+        agregar = sc.next();
+        nombres.add(agregar);
+        menu();
+    }
+    public static void imprimir() {
+        System.out.println("Estos son sus datos ");
+        for (int i = 0; i < nombres.size(); i++) {
+            System.out.println(nombres.get(i));
+        }
+        menu();
+    }
+    public static void agregar() {
+        int posicion = 0;
+        System.out.println("En que posicion lo quiere agregar? ");
+        posicion = sc.nextInt()-1;
+        System.out.println("Ingrese el dato a agregar");
+        agregar = sc.next();
+        nombres.add(posicion, agregar);
+        menu();
+    }
+    public static void consultar (){
+        int con = 0;
+        System.out.println("Que posicion desea consultar?");
+        con =sc.nextInt()-1;
+     System.out.println("El dato en la posicion "+(con+1)+" es:" +nombres.get(con));
+     menu ();
+    }
+}
+
